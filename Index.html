@@ -66,6 +66,27 @@
            <td>$1</td>
        </tr>
    </table>
+   <hr>
+   <h3>Code Display for Combinatorics</h3>
+   <blockquote cite="https://www.site.uottawa.ca/~lucia/courses/5165-09/Introduction.pdf">Combinatorial structures are collections of
+    k-subsets/K-tuple/permutations from a parent set (finite).Combinatorial algorithms are algorithms for investigating combinatorial
+    structures.Generation:Construct all combinatorial structures of a particular type.Enumeration:Compute the number of all different 
+    structures of a particular type.</blockquote>
+    <a href="https://www.site.uottawa.ca/~lucia/courses/5165-09/Introduction.pdf">Combinatorial Algorithm</a>
+    <pre>
+        bool next_combination(vector<int>& a, int n) {
+            int k = (int)a.size();
+            for (int i = k - 1; i >= 0; i--) {
+                if (a[i] < n - k + i + 1) {
+                    a[i]++;
+                    for (int j = i + 1; j < k; j++)
+                        a[j] = a[j - 1] + 1;
+                    return true;
+                }
+            }
+            return false;
+        }
+    </pre>
 </body>
 </html>
 
